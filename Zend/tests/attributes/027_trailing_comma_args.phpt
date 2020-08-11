@@ -3,7 +3,7 @@ Trailing comma in attribute argument list
 --FILE--
 <?php
 
-@@MyAttribute(
+@:MyAttribute(
 	"there",
 	"are",
 	"many",
