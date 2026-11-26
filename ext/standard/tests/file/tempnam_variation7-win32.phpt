@@ -17,8 +17,6 @@ echo "*** Testing tempnam() with invalid/non-existing directory names ***\n";
 $names_arr = array(
     /* Invalid args */
     -1,
-    TRUE,
-    FALSE,
     "",
     " ",
     "\0",
@@ -71,36 +69,26 @@ File name is => %s%et%s
 File permissions are => 100666
 File created in => temp dir
 -- Iteration 1 --
-
-Notice: tempnam(): file created in the system's temporary directory in %stempnam_variation7-win32.php on line %d
 File name is => %s%et%s
 File permissions are => 100666
 File created in => temp dir
 -- Iteration 2 --
+
+Notice: tempnam(): file created in the system's temporary directory in %stempnam_variation7-win32.php on line %d
 File name is => %s%et%s
 File permissions are => 100666
 File created in => temp dir
 -- Iteration 3 --
-File name is => %s%et%s
-File permissions are => 100666
-File created in => temp dir
--- Iteration 4 --
-
-Notice: tempnam(): file created in the system's temporary directory in %stempnam_variation7-win32.php on line %d
-File name is => %s%et%s
-File permissions are => 100666
-File created in => temp dir
--- Iteration 5 --
 tempnam(): Argument #1 ($directory) must not contain any null bytes
--- Iteration 6 --
+-- Iteration 4 --
 tempnam(): Argument #1 ($directory) must be of type string, array given
--- Iteration 7 --
+-- Iteration 5 --
 
 Notice: tempnam(): file created in the system's temporary directory in %stempnam_variation7-win32.php on line %d
 File name is => %s%et%s
 File permissions are => 100666
 File created in => temp dir
--- Iteration 8 --
+-- Iteration 6 --
 
 Notice: tempnam(): file created in the system's temporary directory in %stempnam_variation7-win32.php on line %d
 File name is => %s%et%s

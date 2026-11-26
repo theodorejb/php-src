@@ -26,8 +26,6 @@ $strings = array( "Hello, World",
           0,
           "\t",						// len = 1
           '\t',						// len = 2
-          TRUE,
-          FALSE,
           "Hello, World\0",
           "Hello\0World",
           'Hello, World\0',
@@ -143,8 +141,6 @@ String length of '0' is => int(1)
 String length of '0' is => int(1)
 String length of '	' is => int(1)
 String length of '\t' is => int(2)
-String length of '1' is => int(1)
-String length of '' is => int(0)
 String length of 'Hello, World%0' is => int(13)
 String length of 'Hello%0World' is => int(11)
 String length of 'Hello, World\0' is => int(14)

@@ -21,8 +21,6 @@ $values = array(0x123abc,
                 31.1013e5,
                 011237,
                 '011237',
-                true,
-                false,
                 );
 for ($i = 0; $i < count($values); $i++) {
     try {
@@ -55,5 +53,3 @@ Exception: Invalid characters passed for attempted conversion
 int(51446064)
 int(18279)
 int(70199)
-int(1)
-int(0)

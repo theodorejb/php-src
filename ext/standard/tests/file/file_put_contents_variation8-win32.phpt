@@ -16,8 +16,6 @@ echo "*** Testing file_put_contents() : usage variation ***\n";
 /* An array of filenames */
 $names_arr = array(
   "-1" => -1,
-  "TRUE" => TRUE,
-  "FALSE" => FALSE,
   "\"\"" => "",
   "\" \"" => " ",
   "\\0" => "\0",
@@ -50,12 +48,6 @@ foreach($names_arr as $key =>$value) {
 
 -- Filename: -1 --
 9 bytes written to: '-1'
-
--- Filename: TRUE --
-9 bytes written to: '1'
-
--- Filename: FALSE --
-ValueError: Path must not be empty
 
 -- Filename: "" --
 ValueError: Path must not be empty

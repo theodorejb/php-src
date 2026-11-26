@@ -18,8 +18,7 @@ $values = array(23,
                 "2.345e1",
                 "-2.345e1",
                 null,
-                true,
-                false);
+                );
 
 for ($i = 0; $i < count($values); $i++) {
     $res = abs($values[$i]);
@@ -41,6 +40,4 @@ float(23.45)
 float(23.45)
 
 Deprecated: abs(): Passing null to parameter #1 ($num) of type int|float is deprecated in %s on line %d
-int(0)
-int(1)
 int(0)

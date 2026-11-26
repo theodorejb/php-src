@@ -23,8 +23,6 @@ $values = array(01234567,
                 '12345',
                 31101.3,
                 31.1013e5,
-                true,
-                false,
                 );
 
 for ($i = 0; $i < count($values); $i++) {
@@ -52,5 +50,3 @@ Exception: Invalid characters passed for attempted conversion
 int(5349)
 Exception: Invalid characters passed for attempted conversion
 int(823384)
-int(1)
-int(0)

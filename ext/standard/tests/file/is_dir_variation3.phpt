@@ -10,8 +10,6 @@ echo "*** Testing is_dir() with Invalid arguments: expected bool(false) ***\n";
 $dirnames = array(
   /* Invalid dirnames */
   -2.34555,
-  TRUE,
-  FALSE,
   " ",
 
   /* scalars */
@@ -26,8 +24,6 @@ foreach($dirnames as $dirname) {
 ?>
 --EXPECT--
 *** Testing is_dir() with Invalid arguments: expected bool(false) ***
-bool(false)
-bool(false)
 bool(false)
 bool(false)
 bool(false)

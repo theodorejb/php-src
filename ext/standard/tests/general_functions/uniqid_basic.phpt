@@ -17,8 +17,6 @@ $prefix = array (
                 99999,
                 "99999",
                 10.5e2,
-                true,
-                false
                 );
 
 for ($i = 0; $i < count($prefix); $i++) {
@@ -50,11 +48,3 @@ string(18) "99999%s"
 string(17) "1050%s"
 string(27) "1050%s.%s"
 string(17) "1050%s"
-
-string(14) "1%s"
-string(24) "1%s.%s"
-string(14) "1%s"
-
-string(13) "%s"
-string(23) "%s.%s"
-string(13) "%s"

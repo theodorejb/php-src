@@ -12,8 +12,6 @@ $values = array(10,
                 "3.9505e3",
                 "039",
                 "0x5F",
-                true,
-                false,
                 );
 
 foreach ($values as $value) {
@@ -44,5 +42,3 @@ Deprecated: Implicit conversion from float-string "3.9505e3" to int loses precis
 string(4) "7556"
 string(2) "47"
 TypeError: decoct(): Argument #1 ($num) must be of type int, string given
-string(1) "1"
-string(1) "0"

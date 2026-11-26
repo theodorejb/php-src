@@ -21,8 +21,7 @@ $values = array(23,
         "23.45",
         "2.345e1",
         "1000",
-        true,
-        false);
+        );
 
 for ($i = 0; $i < count($values); $i++) {
     $res = tanh($values[$i]);
@@ -41,5 +40,3 @@ float(1)
 float(1)
 float(1)
 float(1)
-float(0.7615941559557649)
-float(0)

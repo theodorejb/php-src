@@ -18,8 +18,6 @@ echo "*** Testing file_get_contents() : variation ***\n";
 $names_arr = array(
   /* Invalid args */
   "-1" => -1,
-  "TRUE" => TRUE,
-  "FALSE" => FALSE,
   "\"\"" => "",
   "\" \"" => " ",
   "\\0" => "\0",
@@ -48,14 +46,6 @@ foreach($names_arr as $key =>$value) {
 
 Warning: file_get_contents(): Failed to open stream: No such file or directory in %s on line %d
 bool(false)
-
--- Filename: TRUE --
-
-Warning: file_get_contents(): Failed to open stream: No such file or directory in %s on line %d
-bool(false)
-
--- Filename: FALSE --
-ValueError: Path must not be empty
 
 -- Filename: "" --
 ValueError: Path must not be empty

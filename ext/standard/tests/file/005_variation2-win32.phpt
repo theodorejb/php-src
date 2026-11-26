@@ -28,12 +28,10 @@ function stat_fn( $filename ) {
 
 echo "*** Testing fileattime(), filemtime(), filectime() & touch() : usage variations ***\n";
 echo "\n*** testing file info ***";
-stat_fn(false);
 stat_fn('');
 stat_fn(' ');
 stat_fn('|');
 echo "\n*** testing touch ***\n";
-var_dump(touch(false));
 var_dump(touch(''));
 
 //php generates permission denied, we generate No such file or dir.
@@ -47,11 +45,6 @@ echo "Done";
 *** Testing fileattime(), filemtime(), filectime() & touch() : usage variations ***
 
 *** testing file info ***
--- File '' --
--- File access time is => 
--- File modification time is => 
--- inode change time is => 
-
 -- File '' --
 -- File access time is => 
 -- File modification time is => 
@@ -80,7 +73,6 @@ Warning: filectime(): stat failed for | in %s on line %d
 
 
 *** testing touch ***
-bool(false)
 bool(false)
 
 Warning: touch(): %s in %s on line %d

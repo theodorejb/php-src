@@ -21,8 +21,7 @@ $values = array(23,
         "23.45",
         "2.345e1",
         "1000",
-        true,
-        false);
+        );
 
 for ($i = 0; $i < count($values); $i++) {
     $res = sin($values[$i]);
@@ -41,5 +40,3 @@ float(-0.8462204042)
 float(-0.9937407102)
 float(-0.9937407102)
 float(0.8268795405)
-float(0.8414709848)
-float(0)

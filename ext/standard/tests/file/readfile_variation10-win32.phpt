@@ -17,8 +17,6 @@ echo "*** Testing readfile() : variation ***\n";
 $names_arr = array(
   /* Invalid args */
   "-1" => -1,
-  "TRUE" => TRUE,
-  "FALSE" => FALSE,
   "\"\"" => "",
   "\" \"" => " ",
   "\\0" => "\0",
@@ -45,13 +43,6 @@ foreach($names_arr as $key => $value) {
 -- Filename: -1 --
 
 Warning: readfile(): Failed to open stream: No such file or directory in %s on line %d
-
--- Filename: TRUE --
-
-Warning: readfile(): Failed to open stream: No such file or directory in %s on line %d
-
--- Filename: FALSE --
-ValueError: Path must not be empty
 
 -- Filename: "" --
 ValueError: Path must not be empty

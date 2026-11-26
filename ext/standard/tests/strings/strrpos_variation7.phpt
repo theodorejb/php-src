@@ -16,7 +16,6 @@ try {
 } catch (Throwable $exception) {
     echo $exception::class, ': ', $exception->getMessage(), "\n";
 }
-var_dump( strrpos($empty_string, FALSE) );
 
 echo "*** Done ***";
 ?>
@@ -25,5 +24,4 @@ echo "*** Done ***";
 -- With empty heredoc string --
 int(0)
 ValueError: strrpos(): Argument #3 ($offset) must be contained in argument #1 ($haystack)
-int(0)
 *** Done ***

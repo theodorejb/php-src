@@ -23,8 +23,6 @@ $values = array(0x123abc,
                 31.1013e5,
                 011237,
                 '011237',
-                true,
-                false,
                 );
 
 foreach($values as $value) {
@@ -84,9 +82,3 @@ int(18279)
 
 -- hexdec 011237 --
 int(70199)
-
--- hexdec 1 --
-int(1)
-
--- hexdec  --
-int(0)

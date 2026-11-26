@@ -19,8 +19,6 @@ mkdir($file_path);
 $names_arr = array(
   /* Invalid args */
   -1,
-  TRUE,
-  FALSE,
   "",
   " ",
   "\0",
@@ -89,22 +87,14 @@ File name is => %s/%s
 File permissions are => 100600
 File created in => directory specified
 -- Iteration 3 --
-File name is => %s/%s
-File permissions are => 100600
-File created in => directory specified
--- Iteration 4 --
-File name is => %s/%s
-File permissions are => 100600
-File created in => directory specified
--- Iteration 5 --
 ValueError: tempnam(): Argument #2 ($prefix) must not contain any null bytes
--- Iteration 6 --
+-- Iteration 4 --
 TypeError: tempnam(): Argument #2 ($prefix) must be of type string, array given
--- Iteration 7 --
+-- Iteration 5 --
 File name is => %s/dir%s
 File permissions are => 100600
 File created in => directory specified
--- Iteration 8 --
+-- Iteration 6 --
 File name is => %s/php%s
 File permissions are => 100600
 File created in => directory specified

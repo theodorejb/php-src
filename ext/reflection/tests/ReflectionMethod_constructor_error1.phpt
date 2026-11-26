@@ -14,26 +14,8 @@ class TestClass
 
 
 try {
-    echo "\nWrong type of argument (bool):\n";
-    $methodInfo = new ReflectionMethod(true);
-} catch (Exception $e) {
-    print $e->__toString();
-}
-try {
     echo "\nWrong type of argument (int):\n";
     $methodInfo = new ReflectionMethod(3);
-} catch (Exception $e) {
-    print $e->__toString();
-}
-try {
-    echo "\nWrong type of argument (bool, string):\n";
-    $methodInfo = new ReflectionMethod(true, "foo");
-} catch (Exception $e) {
-    print $e->__toString();
-}
-try {
-    echo "\nWrong type of argument (string, bool):\n";
-    $methodInfo = new ReflectionMethod('TestClass', true);
 } catch (Exception $e) {
     print $e->__toString();
 }
@@ -64,29 +46,12 @@ try {
 
 ?>
 --EXPECTF--
-Wrong type of argument (bool):
-
-Deprecated: Calling ReflectionMethod::__construct() with 1 argument is deprecated, use ReflectionMethod::createFromMethodName() instead in %s on line %d
-ReflectionException: ReflectionMethod::__construct(): Argument #1 ($objectOrMethod) must be a valid method name in %s:%d
-Stack trace:
-#0 %s ReflectionMethod->__construct('1')
-#1 {main}
 Wrong type of argument (int):
 
 Deprecated: Calling ReflectionMethod::__construct() with 1 argument is deprecated, use ReflectionMethod::createFromMethodName() instead in %s on line %d
 ReflectionException: ReflectionMethod::__construct(): Argument #1 ($objectOrMethod) must be a valid method name in %s:%d
 Stack trace:
 #0 %s ReflectionMethod->__construct('3')
-#1 {main}
-Wrong type of argument (bool, string):
-ReflectionException: Class "1" does not exist in %s:%d
-Stack trace:
-#0 %s ReflectionMethod->__construct('1', 'foo')
-#1 {main}
-Wrong type of argument (string, bool):
-ReflectionException: Method TestClass::1() does not exist in %s:%d
-Stack trace:
-#0 %s ReflectionMethod->__construct('TestClass', '1')
 #1 {main}
 No method given:
 

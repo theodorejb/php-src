@@ -11,8 +11,7 @@ $values = array(1234.5678,
                 "123456789",
                 "123.456789",
                 "12.3456789e1",
-                true,
-                false);
+                );
 
 echo " number_format tests.....multiple character decimal point\n";
 for ($i = 0; $i < count($values); $i++) {
@@ -43,8 +42,6 @@ string(19) "402 653 183&#183;00"
 string(19) "123 456 789&#183;00"
 string(11) "123&#183;46"
 string(11) "123&#183;46"
-string(9) "1&#183;00"
-string(9) "0&#183;00"
 
  number_format tests.....multiple character thousand separator
 string(15) "1&thinsp;234.57"
@@ -56,8 +53,6 @@ string(28) "402&thinsp;653&thinsp;183.00"
 string(28) "123&thinsp;456&thinsp;789.00"
 string(6) "123.46"
 string(6) "123.46"
-string(4) "1.00"
-string(4) "0.00"
 
  number_format tests.....multiple character decimal and thousep
 string(20) "1&thinsp;234&#183;57"
@@ -69,5 +64,3 @@ string(33) "402&thinsp;653&thinsp;183&#183;00"
 string(33) "123&thinsp;456&thinsp;789&#183;00"
 string(11) "123&#183;46"
 string(11) "123&#183;46"
-string(9) "1&#183;00"
-string(9) "0&#183;00"

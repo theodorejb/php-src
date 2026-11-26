@@ -12,8 +12,6 @@ $delimiters = array (
   "abcd",  // string
   0,  // zero
   "0",
-  TRUE,  // boolean value
-  FALSE,
   -1,  // negative integer
   -11.23,  // double
   4,  // positive integer
@@ -174,38 +172,6 @@ array(2) {
   string(42) "0000TRUEFALSE-11.234444true-11.24%PHP%ZEND"
 }
 -- Iteration 6 --
-array(5) {
-  [0]=>
-  string(0) ""
-  [1]=>
-  string(28) "234NULL23abcd00000TRUEFALSE-"
-  [2]=>
-  string(0) ""
-  [3]=>
-  string(12) ".234444true-"
-  [4]=>
-  string(0) ""
-}
-array(1) {
-  [0]=>
-  string(57) "1234NULL23abcd00000TRUEFALSE-11.234444true-11.24%PHP%ZEND"
-}
-array(1) {
-  [0]=>
-  string(57) "1234NULL23abcd00000TRUEFALSE-11.234444true-11.24%PHP%ZEND"
-}
-array(2) {
-  [0]=>
-  string(0) ""
-  [1]=>
-  string(56) "234NULL23abcd00000TRUEFALSE-11.234444true-11.24%PHP%ZEND"
-}
--- Iteration 7 --
-ValueError: explode(): Argument #1 ($separator) must not be empty, use str_split() to split a string into characters
-ValueError: explode(): Argument #1 ($separator) must not be empty, use str_split() to split a string into characters
-ValueError: explode(): Argument #1 ($separator) must not be empty, use str_split() to split a string into characters
-ValueError: explode(): Argument #1 ($separator) must not be empty, use str_split() to split a string into characters
--- Iteration 8 --
 array(2) {
   [0]=>
   string(28) "1234NULL23abcd00000TRUEFALSE"
@@ -226,7 +192,7 @@ array(2) {
   [1]=>
   string(27) "1.234444true-11.24%PHP%ZEND"
 }
--- Iteration 9 --
+-- Iteration 7 --
 array(1) {
   [0]=>
   string(28) "1234NULL23abcd00000TRUEFALSE"
@@ -245,7 +211,7 @@ array(2) {
   [1]=>
   string(23) "4444true-11.24%PHP%ZEND"
 }
--- Iteration 10 --
+-- Iteration 8 --
 array(6) {
   [0]=>
   string(3) "123"
@@ -274,7 +240,7 @@ array(2) {
   [1]=>
   string(53) "NULL23abcd00000TRUEFALSE-11.234444true-11.24%PHP%ZEND"
 }
--- Iteration 11 --
+-- Iteration 9 --
 array(2) {
   [0]=>
   string(48) "1234NULL23abcd00000TRUEFALSE-11.234444true-11.24"

@@ -84,8 +84,10 @@ int(9223372036854775807)
 *** Trying float(NAN)
 TypeError: {closure:%s:%d}(): Return value must be of type int, float returned in %s on line %d
 *** Trying bool(true)
+E_DEPRECATED: Implicit conversion from true to int on line 14
 int(1)
 *** Trying bool(false)
+E_DEPRECATED: Implicit conversion from false to int on line 14
 int(0)
 *** Trying NULL
 TypeError: {closure:%s:%d}(): Return value must be of type int, null returned in %s on line %d
@@ -121,8 +123,10 @@ float(9.223372036854776E+18)
 *** Trying float(NAN)
 float(NAN)
 *** Trying bool(true)
+E_DEPRECATED: Implicit conversion from true to float on line 15
 float(1)
 *** Trying bool(false)
+E_DEPRECATED: Implicit conversion from false to float on line 15
 float(0)
 *** Trying NULL
 TypeError: {closure:%s:%d}(): Return value must be of type float, null returned in %s on line %d
@@ -159,8 +163,10 @@ string(19) "9223372036854775807"
 E_WARNING: unexpected NAN value was coerced to string on line %d
 string(3) "NAN"
 *** Trying bool(true)
+E_DEPRECATED: Implicit conversion from true to string on line 16
 string(1) "1"
 *** Trying bool(false)
+E_DEPRECATED: Implicit conversion from false to string on line 16
 string(0) ""
 *** Trying NULL
 TypeError: {closure:%s:%d}(): Return value must be of type string, null returned in %s on line %d
@@ -182,18 +188,25 @@ bool(true)
 *** Trying string(1) "1"
 bool(true)
 *** Trying float(1)
+E_DEPRECATED: Implicit conversion from float 1 to bool on line 17
 bool(true)
 *** Trying float(1.5)
+E_DEPRECATED: Implicit conversion from float 1.5 to bool on line 17
 bool(true)
 *** Trying string(2) "1a"
+E_DEPRECATED: Implicit conversion from string "1a" to bool on line 17
 bool(true)
 *** Trying string(1) "a"
+E_DEPRECATED: Implicit conversion from string "a" to bool on line 17
 bool(true)
 *** Trying string(0) ""
+E_DEPRECATED: Implicit conversion from string "" to bool on line 17
 bool(false)
 *** Trying int(9223372036854775807)
+E_DEPRECATED: Implicit conversion from int 9223372036854775807 to bool on line 17
 bool(true)
 *** Trying float(NAN)
+E_DEPRECATED: Implicit conversion from float NAN to bool on line 17
 E_WARNING: unexpected NAN value was coerced to bool on line %d
 bool(true)
 *** Trying bool(true)

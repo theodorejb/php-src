@@ -37,11 +37,9 @@ $search_str = array (
   "\x5AC",
   "\0000",
   ".3",
-  TRUE,
   "TRUE",
   "1",
   1,
-  FALSE,
   "FALSE",
   " ",
   "          ",
@@ -212,17 +210,17 @@ string(196) "Hello, world,0120333FOUND445-1.234567          NULL TRUE FALSE%0
 
 --- Iteration 21 ---
 -- String after replacing the search value is => --
-string(205) "Hello, world,0FOUND20333.3445-FOUND.234567          NULL TRUE FALSE%0
-        %00ZCD%0abcd \xXYZ	abcd $$@#%^&*!~,.:;?: !!Hello, World
-        ?Hello, World chr(0).chr(FOUND28).chr(234).chr(65).chr(255).chr(0)"
--- search string has found '3' times
-
---- Iteration 22 ---
--- String after replacing the search value is => --
 string(194) "Hello, world,0120333.3445-1.234567          NULL FOUND FALSE%0
         %00ZCD%0abcd \xXYZ	abcd $$@#%^&*!~,.:;?: !!Hello, World
         ?Hello, World chr(0).chr(128).chr(234).chr(65).chr(255).chr(0)"
 -- search string has found '1' times
+
+--- Iteration 22 ---
+-- String after replacing the search value is => --
+string(205) "Hello, world,0FOUND20333.3445-FOUND.234567          NULL TRUE FALSE%0
+        %00ZCD%0abcd \xXYZ	abcd $$@#%^&*!~,.:;?: !!Hello, World
+        ?Hello, World chr(0).chr(FOUND28).chr(234).chr(65).chr(255).chr(0)"
+-- search string has found '3' times
 
 --- Iteration 23 ---
 -- String after replacing the search value is => --
@@ -233,45 +231,45 @@ string(205) "Hello, world,0FOUND20333.3445-FOUND.234567          NULL TRUE FALSE
 
 --- Iteration 24 ---
 -- String after replacing the search value is => --
-string(205) "Hello, world,0FOUND20333.3445-FOUND.234567          NULL TRUE FALSE%0
-        %00ZCD%0abcd \xXYZ	abcd $$@#%^&*!~,.:;?: !!Hello, World
-        ?Hello, World chr(0).chr(FOUND28).chr(234).chr(65).chr(255).chr(0)"
--- search string has found '3' times
-
---- Iteration 25 ---
--- String after replacing the search value is => --
-string(193) "Hello, world,0120333.3445-1.234567          NULL TRUE FALSE%0
-        %00ZCD%0abcd \xXYZ	abcd $$@#%^&*!~,.:;?: !!Hello, World
-        ?Hello, World chr(0).chr(128).chr(234).chr(65).chr(255).chr(0)"
--- search string has found '0' times
-
---- Iteration 26 ---
--- String after replacing the search value is => --
 string(193) "Hello, world,0120333.3445-1.234567          NULL TRUE FOUND%0
         %00ZCD%0abcd \xXYZ	abcd $$@#%^&*!~,.:;?: !!Hello, World
         ?Hello, World chr(0).chr(128).chr(234).chr(65).chr(255).chr(0)"
 -- search string has found '1' times
 
---- Iteration 27 ---
+--- Iteration 25 ---
 -- String after replacing the search value is => --
 string(333) "Hello,FOUNDworld,0120333.3445-1.234567FOUNDFOUNDFOUNDFOUNDFOUNDFOUNDFOUNDFOUNDFOUNDFOUNDNULLFOUNDTRUEFOUNDFALSE%0
 FOUNDFOUNDFOUNDFOUNDFOUNDFOUNDFOUNDFOUND%00ZCD%0abcdFOUND\xXYZ	abcdFOUND$$@#%^&*!~,.:;?:FOUND!!Hello,FOUNDWorld
 FOUNDFOUNDFOUNDFOUNDFOUNDFOUNDFOUNDFOUND?Hello,FOUNDWorldFOUNDchr(0).chr(128).chr(234).chr(65).chr(255).chr(0)"
 -- search string has found '35' times
 
---- Iteration 28 ---
+--- Iteration 26 ---
 -- String after replacing the search value is => --
 string(188) "Hello, world,0120333.3445-1.234567FOUNDNULL TRUE FALSE%0
         %00ZCD%0abcd \xXYZ	abcd $$@#%^&*!~,.:;?: !!Hello, World
         ?Hello, World chr(0).chr(128).chr(234).chr(65).chr(255).chr(0)"
 -- search string has found '1' times
 
---- Iteration 29 ---
+--- Iteration 27 ---
 -- String after replacing the search value is => --
 string(201) "Hello, world,0120333.3445-1.234567          NULL TRUE FALSE%0
         %00ZCD%0aFOUNDcd \xXYZ	aFOUNDcd $$@#%^&*!~,.:;?: !!Hello, World
         ?Hello, World chr(0).chr(128).chr(234).chr(65).chr(255).chr(0)"
 -- search string has found '2' times
+
+--- Iteration 28 ---
+-- String after replacing the search value is => --
+string(193) "Hello, world,0120333.3445-1.234567          NULL TRUE FALSE%0
+        %00ZCD%0abcd \xXYZ	abcd $$@#%^&*!~,.:;?: !!Hello, World
+        ?Hello, World chr(0).chr(128).chr(234).chr(65).chr(255).chr(0)"
+-- search string has found '0' times
+
+--- Iteration 29 ---
+-- String after replacing the search value is => --
+string(197) "Hello, world,0120333.3445-1.234567          NULL TRUE FALSE%0
+        %00ZCD%0abcd \xXYZFOUNDabcd $$@#%^&*!~,.:;?: !!Hello, World
+        ?Hello, World chr(0).chr(128).chr(234).chr(65).chr(255).chr(0)"
+-- search string has found '1' times
 
 --- Iteration 30 ---
 -- String after replacing the search value is => --
@@ -281,20 +279,6 @@ string(193) "Hello, world,0120333.3445-1.234567          NULL TRUE FALSE%0
 -- search string has found '0' times
 
 --- Iteration 31 ---
--- String after replacing the search value is => --
-string(197) "Hello, world,0120333.3445-1.234567          NULL TRUE FALSE%0
-        %00ZCD%0abcd \xXYZFOUNDabcd $$@#%^&*!~,.:;?: !!Hello, World
-        ?Hello, World chr(0).chr(128).chr(234).chr(65).chr(255).chr(0)"
--- search string has found '1' times
-
---- Iteration 32 ---
--- String after replacing the search value is => --
-string(193) "Hello, world,0120333.3445-1.234567          NULL TRUE FALSE%0
-        %00ZCD%0abcd \xXYZ	abcd $$@#%^&*!~,.:;?: !!Hello, World
-        ?Hello, World chr(0).chr(128).chr(234).chr(65).chr(255).chr(0)"
--- search string has found '0' times
-
---- Iteration 33 ---
 -- String after replacing the search value is => --
 string(5) "FOUND"
 -- search string has found '1' times

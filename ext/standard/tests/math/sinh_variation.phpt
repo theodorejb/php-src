@@ -21,8 +21,7 @@ $values = array(23,
         "23.45",
         "2.345e1",
         "1000",
-        true,
-        false);
+        );
 
 for ($i = 0; $i < count($values); $i++) {
     $res = sinh($values[$i]);
@@ -41,5 +40,3 @@ float(4872401723)
 float(7641446995)
 float(7641446995)
 float(INF)
-float(1.175201194)
-float(0)

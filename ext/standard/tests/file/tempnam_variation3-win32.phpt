@@ -24,8 +24,6 @@ $file_path = realpath($file_path);
 $names_arr = array(
     /* Valid args (casting)*/
     -1,
-    TRUE,
-    FALSE,
     "",
     " ",
     "\0",
@@ -40,8 +38,6 @@ $names_arr = array(
 
 $res_arr = array(
     /* Invalid args */
-    true,
-    true,
     true,
     true,
     true,
@@ -97,18 +93,14 @@ OK
 -- Iteration 1 --
 OK
 -- Iteration 2 --
-OK
--- Iteration 3 --
-OK
--- Iteration 4 --
 
 Notice: tempnam(): file created in the system's temporary directory in %stempnam_variation3-win32.php on line %d
 tempnam() returned false
--- Iteration 5 --
+-- Iteration 3 --
 tempnam(): Argument #2 ($prefix) must not contain any null bytes
--- Iteration 6 --
+-- Iteration 4 --
 tempnam(): Argument #2 ($prefix) must be of type string, array given
--- Iteration 7 --
+-- Iteration 5 --
 OK
--- Iteration 8 --
+-- Iteration 6 --
 OK

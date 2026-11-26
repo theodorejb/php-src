@@ -13,8 +13,7 @@ $values = array(23,
                 "23",
                 "23.45",
                 "2.345e1",
-                true,
-                false);
+                );
 
 echo "\n LOG tests...no base\n";
 for ($i = 0; $i < count($values); $i++) {
@@ -39,8 +38,6 @@ float(3.1354942159291497)
 float(3.1354942159291497)
 float(3.1548704948922883)
 float(3.1548704948922883)
-float(0)
-float(-INF)
 
  LOG tests...base
 float(2.2617809780285065)
@@ -52,5 +49,3 @@ float(2.2617809780285065)
 float(2.2617809780285065)
 float(2.275758008814007)
 float(2.275758008814007)
-float(0)
-float(-INF)

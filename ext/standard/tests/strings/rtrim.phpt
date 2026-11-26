@@ -8,7 +8,6 @@ Testing rtrim() function
  echo "\n *** Output for Normal Behaviour ***\n";
  var_dump ( rtrim("rtrim test   \t\0 ") );                       /* without second Argument */
  var_dump ( rtrim("rtrim test   " , "") );                       /* no characters in second Argument */
- var_dump ( rtrim("rtrim test        ", true) );                 /* with boolean value as second Argument */
  var_dump ( rtrim("rtrim test        ", " ") );                  /* with single space as second Argument */
  var_dump ( rtrim("rtrim test \t\n\r\0\x0B", "\t\n\r\0\x0B") );  /* with multiple escape sequences as second Argument */
  var_dump ( rtrim("rtrim testABCXYZ", "A..Z") );                 /* with characters range as second Argument */
@@ -45,7 +44,6 @@ echo "Done\n";
 *** Output for Normal Behaviour ***
 string(10) "rtrim test"
 string(13) "rtrim test   "
-string(18) "rtrim test        "
 string(10) "rtrim test"
 string(11) "rtrim test "
 string(10) "rtrim test"

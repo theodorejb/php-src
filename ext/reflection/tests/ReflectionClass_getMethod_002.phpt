@@ -37,11 +37,6 @@ try {
     echo $e->getMessage() . "\n";
 }
 try {
-    var_dump($rc->getMethod(true));
-} catch (Exception $e) {
-    echo $e->getMessage() . "\n";
-}
-try {
     var_dump($rc->getMethod(array(1,2,3)));
 } catch (TypeError $e) {
     echo $e->getMessage() . "\n";
@@ -63,6 +58,5 @@ Deprecated: ReflectionClass::getMethod(): Passing null to parameter #1 ($name) o
 Method C::() does not exist
 Method C::1() does not exist
 Method C::1.5() does not exist
-Method C::1() does not exist
 ReflectionClass::getMethod(): Argument #1 ($name) must be of type string, array given
 ReflectionClass::getMethod(): Argument #1 ($name) must be of type string, C given

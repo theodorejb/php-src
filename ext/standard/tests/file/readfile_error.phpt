@@ -13,11 +13,6 @@ try {
 } catch (Throwable $e) {
     echo $e::class, ': ', $e->getMessage(), "\n";
 }
-try {
-    var_dump( readfile(false) );  // boolean false as $filename
-} catch (Throwable $e) {
-    echo $e::class, ': ', $e->getMessage(), "\n";
-}
 
 echo "\n-- Testing readfile() with non-existent file --\n";
 $non_existent_file = __DIR__."/non_existent_file.tmp";
@@ -29,7 +24,6 @@ echo "Done\n";
 *** Test readfile(): error conditions ***
 
 -- Testing readfile() with invalid arguments --
-ValueError: Path must not be empty
 ValueError: Path must not be empty
 
 -- Testing readfile() with non-existent file --

@@ -20,8 +20,6 @@ chdir($dir);
 /* An array of filenames */
 $names_arr = array(
   -1,
-  TRUE,
-  FALSE,
   "",
   " ",
   //this one also generates a java message rather than our own so we don't replicate php message
@@ -62,22 +60,18 @@ rmdir($dir);
 -- Iteration 0 --
 9 bytes written to: '-1'
 -- Iteration 1 --
-9 bytes written to: '1'
+ValueError: Path must not be empty
 -- Iteration 2 --
-ValueError: Path must not be empty
--- Iteration 3 --
-ValueError: Path must not be empty
--- Iteration 4 --
 9 bytes written to: ' '
--- Iteration 5 --
+-- Iteration 3 --
 ValueError: file_put_contents(): Argument #1 ($filename) must not contain any null bytes
--- Iteration 6 --
+-- Iteration 4 --
 TypeError: file_put_contents(): Argument #1 ($filename) must be of type string, array given
--- Iteration 7 --
+-- Iteration 5 --
 
 Warning: file_put_contents(): Failed to open stream: %s in %s on line %d
 Failed to write data to: '%sir'
--- Iteration 8 --
+-- Iteration 6 --
 
 Warning: file_put_contents(): Failed to open stream: %s in %s on line %d
 Failed to write data to: '%sphp'

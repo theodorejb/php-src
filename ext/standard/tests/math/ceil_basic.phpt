@@ -22,8 +22,6 @@ $values = array(0,
                 "3.95E3",
                 "-3.95E3",
                 "039",
-                true,
-                false,
                 null,
                 );
 
@@ -52,8 +50,6 @@ float(-10)
 float(3950)
 float(-3950)
 float(39)
-float(1)
-float(0)
 
 Deprecated: ceil(): Passing null to parameter #1 ($num) of type int|float is deprecated in %s on line %d
 float(0)

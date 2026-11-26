@@ -24,7 +24,6 @@ $operations = array(
   LOCK_UN,
   1,
   2,
-  TRUE
 );
 
 /* array of wouldblocks */
@@ -306,36 +305,6 @@ bool(true)
 -- Inner iteration 12 in 7 --
 bool(true)
 -- Inner iteration 13 in 7 --
-bool(true)
---- Outer iteration 8 ---
-bool(true)
--- Inner iteration 0 in 8 --
-bool(true)
--- Inner iteration 1 in 8 --
-bool(true)
--- Inner iteration 2 in 8 --
-bool(true)
--- Inner iteration 3 in 8 --
-bool(true)
--- Inner iteration 4 in 8 --
-bool(true)
--- Inner iteration 5 in 8 --
-bool(true)
--- Inner iteration 6 in 8 --
-bool(true)
--- Inner iteration 7 in 8 --
-bool(true)
--- Inner iteration 8 in 8 --
-bool(true)
--- Inner iteration 9 in 8 --
-bool(true)
--- Inner iteration 10 in 8 --
-bool(true)
--- Inner iteration 11 in 8 --
-bool(true)
--- Inner iteration 12 in 8 --
-bool(true)
--- Inner iteration 13 in 8 --
 bool(true)
 
 *** Done ***

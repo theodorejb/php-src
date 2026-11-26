@@ -41,11 +41,9 @@ $needles = array(
   "NULL",
   "0",
   0,
-  TRUE,
   "TRUE",
   "1",
   1,
-  FALSE,
   "FALSE",
   " ",
   "     ",
@@ -70,8 +68,6 @@ $offset_values = array (
   "string",  // offset as string, converts to zero
   "",  // offset as string, converts to zero
   "0",
-  TRUE,
-  FALSE,
   "string12",
   -10, // Not found
   -15, // Found
@@ -206,11 +202,9 @@ Position of '-3.344' is => int(19)
 Position of 'NULL' is => int(31)
 Position of '0' is => int(12)
 Position of '0' is => int(12)
-Position of '1' is => int(13)
 Position of 'TRUE' is => int(36)
 Position of '1' is => int(13)
 Position of '1' is => int(13)
-Position of '' is => int(0)
 Position of 'FALSE' is => int(41)
 Position of ' ' is => int(5)
 Position of '     ' is => int(26)
@@ -231,8 +225,6 @@ TypeError: strpos(): Argument #3 ($offset) must be of type int, string given
 Position of 'Hello' with offset '' is => 
 TypeError: strpos(): Argument #3 ($offset) must be of type int, string given
 Position of 'Hello' with offset '0' is => int(0)
-Position of 'Hello' with offset '1' is => int(74)
-Position of 'Hello' with offset '' is => int(0)
 Position of 'Hello' with offset 'string12' is => 
 TypeError: strpos(): Argument #3 ($offset) must be of type int, string given
 Position of 'Hello' with offset '-10' is => bool(false)

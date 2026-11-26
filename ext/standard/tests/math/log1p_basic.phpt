@@ -15,8 +15,7 @@ $values = array(23,
                 "23",
                 "23.45",
                 "2.345e1",
-                true,
-                false);
+                );
 
 echo "\n LOG1p tests\n";
 
@@ -58,9 +57,3 @@ float(3.196630215920881)
 
 -- log1p 2.345e1 --
 float(3.196630215920881)
-
--- log1p 1 --
-float(0.6931471805599453)
-
--- log1p  --
-float(0)

@@ -13,7 +13,6 @@ var_dump( trim($null_var) );
 
 /* second argument charlist as empty - does not trim any white spaces */
 var_dump( trim("\ttesting trim", "") );
-var_dump( trim("\ttesting trim  ", true) );
 
 /* Use of class and objects */
 echo "\n*** Testing with OBJECTS ***\n";
@@ -46,7 +45,6 @@ string(0) ""
 string(1) "0"
 string(1) "0"
 string(13) "	testing trim"
-string(15) "	testing trim  "
 
 *** Testing with OBJECTS ***
 string(4) "bjec"

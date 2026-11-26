@@ -91,9 +91,11 @@ int(%d)
 TypeError: {closure:%s:%d}(): Argument #1 ($i) must be of type int, float given, called in %s on line %d
 
 *** Trying bool(true)
+E_DEPRECATED: Implicit conversion from true to int on line 14
 int(1)
 
 *** Trying bool(false)
+E_DEPRECATED: Implicit conversion from false to int on line 14
 int(0)
 
 *** Trying NULL
@@ -144,9 +146,11 @@ float(%s)
 float(NAN)
 
 *** Trying bool(true)
+E_DEPRECATED: Implicit conversion from true to float on line 15
 float(1)
 
 *** Trying bool(false)
+E_DEPRECATED: Implicit conversion from false to float on line 15
 float(0)
 
 *** Trying NULL
@@ -198,9 +202,11 @@ E_WARNING: unexpected NAN value was coerced to string on line %d
 string(3) "NAN"
 
 *** Trying bool(true)
+E_DEPRECATED: Implicit conversion from true to string on line 16
 string(1) "1"
 
 *** Trying bool(false)
+E_DEPRECATED: Implicit conversion from false to string on line 16
 string(0) ""
 
 *** Trying NULL
@@ -230,24 +236,31 @@ bool(true)
 bool(true)
 
 *** Trying float(1)
+E_DEPRECATED: Implicit conversion from float 1 to bool on line 17
 bool(true)
 
 *** Trying float(1.5)
+E_DEPRECATED: Implicit conversion from float 1.5 to bool on line 17
 bool(true)
 
 *** Trying string(2) "1a"
+E_DEPRECATED: Implicit conversion from string "1a" to bool on line 17
 bool(true)
 
 *** Trying string(1) "a"
+E_DEPRECATED: Implicit conversion from string "a" to bool on line 17
 bool(true)
 
 *** Trying string(0) ""
+E_DEPRECATED: Implicit conversion from string "" to bool on line 17
 bool(false)
 
 *** Trying int(%d)
+E_DEPRECATED: Implicit conversion from int 9223372036854775807 to bool on line 17
 bool(true)
 
 *** Trying float(NAN)
+E_DEPRECATED: Implicit conversion from float NAN to bool on line 17
 E_WARNING: unexpected NAN value was coerced to bool on line %d
 bool(true)
 

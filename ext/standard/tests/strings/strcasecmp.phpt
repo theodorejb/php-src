@@ -11,7 +11,7 @@ echo "#### Basic and Possible operations ####";
 $arrays = array(
            array("a", 'A', chr(128), chr(255), chr(0)),
            array("acc", "Acc", 'aC', "acCc", 'acd', "?acc", 'Acc!', "$!acc", ";acc"),
-           array("1", "0", 0, "-1", -1, "", TRUE, true, FALSE, "string"),
+           array("1", "0", 0, "-1", -1, "", "string"),
            array(10.5, 1.5, 9.5, 11.5, 100.5, 10.5E1, -10.5, 10, 0.5)
           );
 
@@ -282,10 +282,7 @@ Array
     [3] => -1
     [4] => -1
     [5] => 
-    [6] => 1
-    [7] => 1
-    [8] => 
-    [9] => string
+    [6] => string
 )
 
 Iteration 0
@@ -294,9 +291,6 @@ Iteration 0
 - strcasecmp of '1' and '0' is => int(%d)
 - strcasecmp of '1' and '-1' is => int(%d)
 - strcasecmp of '1' and '-1' is => int(%d)
-- strcasecmp of '1' and '' is => int(%d)
-- strcasecmp of '1' and '1' is => int(0)
-- strcasecmp of '1' and '1' is => int(0)
 - strcasecmp of '1' and '' is => int(%d)
 - strcasecmp of '1' and 'string' is => int(-%d)
 
@@ -307,9 +301,6 @@ Iteration 1
 - strcasecmp of '0' and '-1' is => int(%d)
 - strcasecmp of '0' and '-1' is => int(%d)
 - strcasecmp of '0' and '' is => int(%d)
-- strcasecmp of '0' and '1' is => int(-%d)
-- strcasecmp of '0' and '1' is => int(-%d)
-- strcasecmp of '0' and '' is => int(%d)
 - strcasecmp of '0' and 'string' is => int(-%d)
 
 Iteration 2
@@ -318,9 +309,6 @@ Iteration 2
 - strcasecmp of '0' and '0' is => int(0)
 - strcasecmp of '0' and '-1' is => int(%d)
 - strcasecmp of '0' and '-1' is => int(%d)
-- strcasecmp of '0' and '' is => int(%d)
-- strcasecmp of '0' and '1' is => int(-%d)
-- strcasecmp of '0' and '1' is => int(-%d)
 - strcasecmp of '0' and '' is => int(%d)
 - strcasecmp of '0' and 'string' is => int(-%d)
 
@@ -331,9 +319,6 @@ Iteration 3
 - strcasecmp of '-1' and '-1' is => int(0)
 - strcasecmp of '-1' and '-1' is => int(0)
 - strcasecmp of '-1' and '' is => int(%d)
-- strcasecmp of '-1' and '1' is => int(-%d)
-- strcasecmp of '-1' and '1' is => int(-%d)
-- strcasecmp of '-1' and '' is => int(%d)
 - strcasecmp of '-1' and 'string' is => int(-%d)
 
 Iteration 4
@@ -342,9 +327,6 @@ Iteration 4
 - strcasecmp of '-1' and '0' is => int(-%d)
 - strcasecmp of '-1' and '-1' is => int(0)
 - strcasecmp of '-1' and '-1' is => int(0)
-- strcasecmp of '-1' and '' is => int(%d)
-- strcasecmp of '-1' and '1' is => int(-%d)
-- strcasecmp of '-1' and '1' is => int(-%d)
 - strcasecmp of '-1' and '' is => int(%d)
 - strcasecmp of '-1' and 'string' is => int(-%d)
 
@@ -355,56 +337,14 @@ Iteration 5
 - strcasecmp of '' and '-1' is => int(-%d)
 - strcasecmp of '' and '-1' is => int(-%d)
 - strcasecmp of '' and '' is => int(0)
-- strcasecmp of '' and '1' is => int(-%d)
-- strcasecmp of '' and '1' is => int(-%d)
-- strcasecmp of '' and '' is => int(0)
 - strcasecmp of '' and 'string' is => int(-%d)
 
 Iteration 6
-- strcasecmp of '1' and '1' is => int(0)
-- strcasecmp of '1' and '0' is => int(%d)
-- strcasecmp of '1' and '0' is => int(%d)
-- strcasecmp of '1' and '-1' is => int(%d)
-- strcasecmp of '1' and '-1' is => int(%d)
-- strcasecmp of '1' and '' is => int(%d)
-- strcasecmp of '1' and '1' is => int(0)
-- strcasecmp of '1' and '1' is => int(0)
-- strcasecmp of '1' and '' is => int(%d)
-- strcasecmp of '1' and 'string' is => int(-%d)
-
-Iteration 7
-- strcasecmp of '1' and '1' is => int(0)
-- strcasecmp of '1' and '0' is => int(%d)
-- strcasecmp of '1' and '0' is => int(%d)
-- strcasecmp of '1' and '-1' is => int(%d)
-- strcasecmp of '1' and '-1' is => int(%d)
-- strcasecmp of '1' and '' is => int(%d)
-- strcasecmp of '1' and '1' is => int(0)
-- strcasecmp of '1' and '1' is => int(0)
-- strcasecmp of '1' and '' is => int(%d)
-- strcasecmp of '1' and 'string' is => int(-%d)
-
-Iteration 8
-- strcasecmp of '' and '1' is => int(-%d)
-- strcasecmp of '' and '0' is => int(-%d)
-- strcasecmp of '' and '0' is => int(-%d)
-- strcasecmp of '' and '-1' is => int(-%d)
-- strcasecmp of '' and '-1' is => int(-%d)
-- strcasecmp of '' and '' is => int(0)
-- strcasecmp of '' and '1' is => int(-%d)
-- strcasecmp of '' and '1' is => int(-%d)
-- strcasecmp of '' and '' is => int(0)
-- strcasecmp of '' and 'string' is => int(-%d)
-
-Iteration 9
 - strcasecmp of 'string' and '1' is => int(%d)
 - strcasecmp of 'string' and '0' is => int(%d)
 - strcasecmp of 'string' and '0' is => int(%d)
 - strcasecmp of 'string' and '-1' is => int(%d)
 - strcasecmp of 'string' and '-1' is => int(%d)
-- strcasecmp of 'string' and '' is => int(%d)
-- strcasecmp of 'string' and '1' is => int(%d)
-- strcasecmp of 'string' and '1' is => int(%d)
 - strcasecmp of 'string' and '' is => int(%d)
 - strcasecmp of 'string' and 'string' is => int(0)
 

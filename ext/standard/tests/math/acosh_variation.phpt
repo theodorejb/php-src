@@ -21,8 +21,7 @@ $values = array(23,
         "23.45",
         "2.345e1",
         "1000",
-        true,
-        false);
+        );
 
 for ($i = 0; $i < count($values); $i++) {
     $res = acosh($values[$i]);
@@ -41,5 +40,3 @@ float(3.8281684713331012)
 float(3.8475627390640357)
 float(3.8475627390640357)
 float(7.600902209541989)
-float(0)
-float(NAN)

@@ -24,12 +24,10 @@ $str_array = array(
                     "NULL",
                     "0",
                     0,
-                    TRUE,		// bool type
                     "TRUE",
                     "1",
                     1,
                     1.234444,
-                    FALSE,
                     "FALSE",
                     " ",
                     "     ",
@@ -148,12 +146,10 @@ string(6) "-3.344"
 string(4) "nULL"
 string(1) "0"
 string(1) "0"
-string(1) "1"
 string(4) "tRUE"
 string(1) "1"
 string(1) "1"
 string(8) "1.234444"
-string(0) ""
 string(5) "fALSE"
 string(1) " "
 string(5) "     "

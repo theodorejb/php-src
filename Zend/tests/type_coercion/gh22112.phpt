@@ -4,6 +4,10 @@ GH-22112 (Assertion failure when error handler throws during NaN to bool/string 
 <?php
 
 set_error_handler(function ($errno, $errstr) {
+    if ($errno === E_DEPRECATED) {
+        // Ignore the lossy bool coercion deprecation, so that the NAN warning is reached
+        return true;
+    }
     throw new Exception($errstr);
 });
 

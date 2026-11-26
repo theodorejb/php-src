@@ -6,7 +6,7 @@ Dave Kelsey <d_kelsey@uk.ibm.com>
 obscure_filename
 --FILE--
 <?php
-/* Testing readlink() with invalid arguments -int, float, bool, NULL, resource */
+/* Testing readlink() with invalid arguments -int, float, NULL, resource */
 
 $file_path = __DIR__;
 
@@ -15,8 +15,6 @@ $filenames = array(
   /* Invalid filenames */
   -2.34555,
   "",
-  TRUE,
-  FALSE,
 
   /* scalars */
   1234,
@@ -31,12 +29,6 @@ foreach( $filenames as $filename ) {
 ?>
 --EXPECTF--
 *** Testing Invalid file types ***
-
-Warning: readlink(): %s in %s on line %d
-bool(false)
-
-Warning: readlink(): %s in %s on line %d
-bool(false)
 
 Warning: readlink(): %s in %s on line %d
 bool(false)

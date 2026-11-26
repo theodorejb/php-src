@@ -13,8 +13,7 @@ $values1 = array(234,
                 "234",
                 "234.5",
                 "23.45e1",
-                true,
-                false);
+                );
 
 $values2 = array(2,
                 -2,
@@ -25,8 +24,7 @@ $values2 = array(2,
                 "2",
                 "2.3",
                 "2.3e1",
-                true,
-                false);
+                );
 for ($i = 0; $i < count($values1); $i++) {
     echo "\niteration ", $i, "\n";
 
@@ -47,8 +45,6 @@ float(0)
 float(0)
 float(1.700000000000018)
 float(4)
-float(0)
-float(NAN)
 
 iteration 1
 float(-0)
@@ -60,8 +56,6 @@ float(-0)
 float(-0)
 float(-1.700000000000018)
 float(-4)
-float(-0)
-float(NAN)
 
 iteration 2
 float(0.5)
@@ -73,8 +67,6 @@ float(0.5)
 float(0.5)
 float(2.200000000000018)
 float(4.5)
-float(0.5)
-float(NAN)
 
 iteration 3
 float(-0.5)
@@ -86,8 +78,6 @@ float(-0.5)
 float(-0.5)
 float(-2.200000000000018)
 float(-4.5)
-float(-0.5)
-float(NAN)
 
 iteration 4
 float(0)
@@ -99,8 +89,6 @@ float(0)
 float(0)
 float(1.700000000000018)
 float(4)
-float(0)
-float(NAN)
 
 iteration 5
 float(0)
@@ -112,8 +100,6 @@ float(0)
 float(0)
 float(1.700000000000018)
 float(4)
-float(0)
-float(NAN)
 
 iteration 6
 float(0)
@@ -125,8 +111,6 @@ float(0)
 float(0)
 float(1.700000000000018)
 float(4)
-float(0)
-float(NAN)
 
 iteration 7
 float(0.5)
@@ -138,8 +122,6 @@ float(0.5)
 float(0.5)
 float(2.200000000000018)
 float(4.5)
-float(0.5)
-float(NAN)
 
 iteration 8
 float(0.5)
@@ -151,31 +133,3 @@ float(0.5)
 float(0.5)
 float(2.200000000000018)
 float(4.5)
-float(0.5)
-float(NAN)
-
-iteration 9
-float(1)
-float(1)
-float(1)
-float(1)
-float(1)
-float(1)
-float(1)
-float(1)
-float(1)
-float(0)
-float(NAN)
-
-iteration 10
-float(0)
-float(0)
-float(0)
-float(0)
-float(0)
-float(0)
-float(0)
-float(0)
-float(0)
-float(0)
-float(NAN)

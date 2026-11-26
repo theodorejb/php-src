@@ -16,14 +16,8 @@ stripos() function test
     var_dump(stripos("a", " "));
     var_dump(stripos("a", "a"));
     var_dump(stripos("", 1));
-    var_dump(stripos("", false));
-    var_dump(stripos("", true));
     var_dump(stripos("a", 1));
-    var_dump(stripos("a", false));
-    var_dump(stripos("a", true));
     var_dump(stripos("1", 1));
-    var_dump(stripos("0", false));
-    var_dump(stripos("1", true));
     var_dump(stripos("\\\\a", "\\a"));
 ?>
 
@@ -43,13 +37,7 @@ bool(false)
 bool(false)
 int(0)
 bool(false)
-int(0)
 bool(false)
-bool(false)
-int(0)
-bool(false)
-int(0)
-int(0)
 int(0)
 int(1)
 

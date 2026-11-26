@@ -13,8 +13,7 @@ $values = array(1234.5678,
                 "123456789",
                 "123.456789",
                 "12.3456789e1",
-                true,
-                false);
+                );
 
 echo "\n-- number_format tests.....default --\n";
 for ($i = 0; $i < count($values); $i++) {
@@ -53,8 +52,6 @@ string(11) "402,653,183"
 string(11) "123,456,789"
 string(3) "123"
 string(3) "123"
-string(1) "1"
-string(1) "0"
 
 -- number_format tests.....with two dp --
 string(8) "1,234.57"
@@ -66,8 +63,6 @@ string(14) "402,653,183.00"
 string(14) "123,456,789.00"
 string(6) "123.46"
 string(6) "123.46"
-string(4) "1.00"
-string(4) "0.00"
 
 -- number_format tests.....English format --
 string(8) "1 234.57"
@@ -79,8 +74,6 @@ string(14) "402 653 183.00"
 string(14) "123 456 789.00"
 string(6) "123.46"
 string(6) "123.46"
-string(4) "1.00"
-string(4) "0.00"
 
 -- number_format tests.....French format --
 string(8) "1 234,57"
@@ -92,5 +85,3 @@ string(14) "402 653 183,00"
 string(14) "123 456 789,00"
 string(6) "123,46"
 string(6) "123,46"
-string(4) "1,00"
-string(4) "0,00"

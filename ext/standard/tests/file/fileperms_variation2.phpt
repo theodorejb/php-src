@@ -6,7 +6,7 @@ Dave Kelsey <d_kelsey@uk.ibm.com>
 obscure_filename
 --FILE--
 <?php
-/* Testing fileperms() with invalid arguments -int, float, bool, NULL, resource */
+/* Testing fileperms() with invalid arguments -int, float, NULL, resource */
 
 $file_path = __DIR__;
 
@@ -16,8 +16,6 @@ $filenames = array(
   -2.34555,
   " ",
   "",
-  TRUE,
-  FALSE,
 
   /* scalars */
   1234,
@@ -37,10 +35,6 @@ Warning: fileperms(): stat failed for -2.34555 in %s on line %d
 bool(false)
 
 Warning: fileperms(): stat failed for   in %s on line %d
-bool(false)
-bool(false)
-
-Warning: fileperms(): stat failed for 1 in %s on line %d
 bool(false)
 bool(false)
 

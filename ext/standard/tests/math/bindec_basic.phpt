@@ -24,8 +24,6 @@ $values = array(111000111,
                 31.1013e5,
                 0x111ABC,
                 011237,
-                true,
-                false,
                 );
 
 for ($i = 0; $i < count($values); $i++) {
@@ -56,5 +54,3 @@ Exception: Invalid characters passed for attempted conversion
 Exception: Invalid characters passed for attempted conversion
 Exception: Invalid characters passed for attempted conversion
 Exception: Invalid characters passed for attempted conversion
-int(1)
-int(0)

@@ -21,8 +21,7 @@ $values = array(23,
         "23.45",
         "2.345e1",
         "1000",
-        true,
-        false);
+        );
 
 for ($i = 0; $i < count($values); $i++) {
     $res = cos($values[$i]);
@@ -41,5 +40,3 @@ float(-0.5328330203)
 float(-0.1117112391)
 float(-0.1117112391)
 float(0.5623790763)
-float(0.5403023059)
-float(1)

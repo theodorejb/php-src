@@ -21,8 +21,7 @@ $values = array(23,
         "23.45",
         "2.345e1",
         "1000",
-        true,
-        false);
+        );
 
 for ($i = 0; $i < count($values); $i++) {
     $res = log10($values[$i]);
@@ -41,5 +40,3 @@ float(1.3617278360175928)
 float(1.3701428470511021)
 float(1.3701428470511021)
 float(3)
-float(0)
-float(-INF)

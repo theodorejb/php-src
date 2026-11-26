@@ -18,7 +18,6 @@ $fp = fopen($file, "w");
 $operations = array(
   0,
   LOCK_NB,
-  FALSE,
   array(1,2,3),
   array(),
   "string",
@@ -59,15 +58,13 @@ ValueError: flock(): Argument #2 ($operation) must be one of LOCK_SH, LOCK_EX, o
 --- Iteration 1 ---
 ValueError: flock(): Argument #2 ($operation) must be one of LOCK_SH, LOCK_EX, or LOCK_UN
 --- Iteration 2 ---
-ValueError: flock(): Argument #2 ($operation) must be one of LOCK_SH, LOCK_EX, or LOCK_UN
+TypeError: flock(): Argument #2 ($operation) must be of type int, array given
 --- Iteration 3 ---
 TypeError: flock(): Argument #2 ($operation) must be of type int, array given
 --- Iteration 4 ---
-TypeError: flock(): Argument #2 ($operation) must be of type int, array given
+TypeError: flock(): Argument #2 ($operation) must be of type int, string given
 --- Iteration 5 ---
 TypeError: flock(): Argument #2 ($operation) must be of type int, string given
 --- Iteration 6 ---
-TypeError: flock(): Argument #2 ($operation) must be of type int, string given
---- Iteration 7 ---
 TypeError: flock(): Argument #2 ($operation) must be of type int, string given
 TypeError: flock(): Argument #1 ($stream) must be an open stream resource

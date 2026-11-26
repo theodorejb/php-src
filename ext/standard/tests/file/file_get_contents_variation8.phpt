@@ -17,8 +17,6 @@ echo "*** Testing file_get_contents() : variation ***\n";
 $names_arr = array(
   /* Invalid args */
   -1,
-  TRUE,
-  FALSE,
   "",
   " ",
   "\0",
@@ -48,26 +46,20 @@ echo "\n*** Done ***\n";
 Warning: file_get_contents(): Failed to open stream: No such file or directory in %s on line %d
 bool(false)
 -- Iteration 1 --
-
-Warning: file_get_contents(): Failed to open stream: No such file or directory in %s on line %d
-bool(false)
+ValueError: Path must not be empty
 -- Iteration 2 --
-ValueError: Path must not be empty
+
+Warning: file_get_contents(): Failed to open stream: No such file or directory in %s on line %d
+bool(false)
 -- Iteration 3 --
-ValueError: Path must not be empty
--- Iteration 4 --
-
-Warning: file_get_contents(): Failed to open stream: No such file or directory in %s on line %d
-bool(false)
--- Iteration 5 --
 ValueError: file_get_contents(): Argument #1 ($filename) must not contain any null bytes
--- Iteration 6 --
+-- Iteration 4 --
 TypeError: file_get_contents(): Argument #1 ($filename) must be of type string, array given
--- Iteration 7 --
+-- Iteration 5 --
 
 Warning: file_get_contents(): Failed to open stream: No such file or directory in %s on line %d
 bool(false)
--- Iteration 8 --
+-- Iteration 6 --
 
 Warning: file_get_contents(): Failed to open stream: No such file or directory in %s on line %d
 bool(false)

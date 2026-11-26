@@ -18,8 +18,6 @@ echo "*** Testing readfile() : variation ***\n";
 $names_arr = array(
   /* Invalid args */
   -1,
-  TRUE,
-  FALSE,
   "",
   " ",
   "\0",
@@ -45,11 +43,6 @@ for( $i=0; $i<count($names_arr); $i++ ) {
 -- testing '-1' --
 
 Warning: readfile(): Failed to open stream: %s in %s on line %d
--- testing '1' --
-
-Warning: readfile(): Failed to open stream: %s in %s on line %d
--- testing '' --
-ValueError: Path must not be empty
 -- testing '' --
 ValueError: Path must not be empty
 -- testing ' ' --

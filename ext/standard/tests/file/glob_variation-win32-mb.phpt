@@ -35,7 +35,6 @@ $patterns = array (
   '$file_path/glob_variation私はガラスを食べられます/wonder5',
   "$file_path/glob_variation私はガラスを食べられます/?wonder?",
   "$file_path/glob_variation私はガラスを食べられます/wonder?",
-  TRUE  // boolean true
 );
 $counter = 1;
 /* loop through $patterns to match each $pattern with the files created
@@ -380,22 +379,6 @@ array(0) {
 array(0) {
 }
 
--- Iteration 12 --
-array(0) {
-}
-array(0) {
-}
-array(0) {
-}
-array(1) {
-  [0]=>
-  string(%d) "1"
-}
-array(0) {
-}
-array(0) {
-}
-
 *** Testing glob() with pattern within braces ***
 array(1) {
   [0]=>
@@ -444,8 +427,5 @@ array(0) {
 array(1) {
   [0]=>
   string(%d) "%s/glob_variation私はガラスを食べられます/wonder1"
-}
--- Iteration 12 --
-array(0) {
 }
 Done

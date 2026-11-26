@@ -41,6 +41,8 @@ foreach ($types as $type) {
 --EXPECTF--
 float(NAN)
 
+Deprecated: Implicit conversion from float NAN to bool in %s on line %d
+
 Warning: unexpected NAN value was coerced to bool in %s on line %d
 bool(true)
 
