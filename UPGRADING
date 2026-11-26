@@ -133,6 +133,14 @@ PHP 8.7 UPGRADE NOTES
 4. Deprecated Functionality
 ========================================
 
+- Core:
+  . Lossy implicit conversions to and from bool for parameter, return, and
+    property types in coercive typing mode are now deprecated. Converting an
+    int other than 0 or 1, any float, or a string other than "0" or "1" to
+    bool emits a deprecation, as does converting a bool to int, float, or
+    string.
+    RFC: https://wiki.php.net/rfc/deprecate-lossy-bool-coercion
+
 ========================================
 5. Changed Functions
 ========================================

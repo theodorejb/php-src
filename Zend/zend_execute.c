@@ -777,11 +777,17 @@ static bool zend_verify_weak_scalar_type_hint(uint32_t type_mask, zval *arg)
 			zval_ptr_dtor(arg);
 			ZVAL_DOUBLE(arg, dval);
 			return true;
+		} else if (UNEXPECTED(EG(exception))) {
+			return false;
 		}
 	}
-	if ((type_mask & MAY_BE_STRING) && zend_parse_arg_str_weak(arg, 0)) {
-		/* on success "arg" is converted to IS_STRING */
-		return true;
+	if (type_mask & MAY_BE_STRING) {
+		if (zend_parse_arg_str_weak(arg, 0)) {
+			/* on success "arg" is converted to IS_STRING */
+			return true;
+		} else if (UNEXPECTED(EG(exception))) {
+			return false;
+		}
 	}
 	if ((type_mask & MAY_BE_BOOL) == MAY_BE_BOOL) {
 		zpp_parse_bool_status bval = zend_parse_arg_bool_weak(arg, 0);

@@ -582,11 +582,58 @@ static ZEND_COLD bool zend_null_arg_deprecated(const char *fallback_type, uint32
 	return !EG(exception);
 }
 
+/* int 0/1 and string "0"/"1" are the only scalars with a canonical bool representation. */
+static zend_always_inline bool zend_is_lossy_bool_coercion(const zval *arg)
+{
+	switch (Z_TYPE_P(arg)) {
+		case IS_LONG:
+			return Z_LVAL_P(arg) != 0 && Z_LVAL_P(arg) != 1;
+		case IS_DOUBLE:
+			return true;
+		case IS_STRING:
+			return Z_STRLEN_P(arg) != 1 || (Z_STRVAL_P(arg)[0] != '0' && Z_STRVAL_P(arg)[0] != '1');
+		default:
+			return false;
+	}
+}
+
+static ZEND_COLD bool zend_lossy_to_bool_coercion_deprecated(const zval *arg)
+{
+	switch (Z_TYPE_P(arg)) {
+		case IS_LONG:
+			zend_error(E_DEPRECATED, "Implicit conversion from int " ZEND_LONG_FMT " to bool", Z_LVAL_P(arg));
+			break;
+		case IS_DOUBLE:
+			zend_error_unchecked(E_DEPRECATED, "Implicit conversion from float %.*H to bool", -1, Z_DVAL_P(arg));
+			break;
+		case IS_STRING:
+			zend_error(E_DEPRECATED, "Implicit conversion from string \"%pS\" to bool", Z_STR_P(arg));
+			break;
+		EMPTY_SWITCH_DEFAULT_CASE();
+	}
+	return !EG(exception);
+}
+
+static ZEND_COLD bool zend_lossy_from_bool_coercion_deprecated(const zval *arg, const char *target_type)
+{
+	ZEND_ASSERT(Z_TYPE_P(arg) == IS_FALSE || Z_TYPE_P(arg) == IS_TRUE);
+	zend_error(E_DEPRECATED, "Implicit conversion from %s to %s",
+		Z_TYPE_P(arg) == IS_TRUE ? "true" : "false", target_type);
+	return !EG(exception);
+}
+
 ZEND_API zpp_parse_bool_status ZEND_FASTCALL zend_parse_arg_bool_weak(const zval *arg, uint32_t arg_num) /* {{{ */
 {
 	if (EXPECTED(Z_TYPE_P(arg) <= IS_STRING)) {
 		if (UNEXPECTED(Z_TYPE_P(arg) == IS_NULL) && !zend_null_arg_deprecated("bool", arg_num)) {
 			return ZPP_PARSE_BOOL_STATUS_ERROR;
+		}
+		/* Check arg_num is not (uint32_t)-1, as otherwise its called by
+		 * zend_verify_weak_scalar_type_hint_no_sideeffect() */
+		if (UNEXPECTED(zend_is_lossy_bool_coercion(arg)) && arg_num != (uint32_t)-1) {
+			if (!zend_lossy_to_bool_coercion_deprecated(arg)) {
+				return ZPP_PARSE_BOOL_STATUS_ERROR;
+			}
 		}
 		bool result = zend_is_true(arg);
 		if (UNEXPECTED(EG(exception))) {
@@ -669,11 +716,18 @@ ZEND_API bool ZEND_FASTCALL zend_parse_arg_long_weak(const zval *arg, zend_long 
 			}
 		}
 	} else if (EXPECTED(Z_TYPE_P(arg) < IS_TRUE)) {
-		if (UNEXPECTED(Z_TYPE_P(arg) == IS_NULL) && !zend_null_arg_deprecated("int", arg_num)) {
+		if (UNEXPECTED(Z_TYPE_P(arg) == IS_NULL)) {
+			if (!zend_null_arg_deprecated("int", arg_num)) {
+				return 0;
+			}
+		} else if (arg_num != (uint32_t)-1 && !zend_lossy_from_bool_coercion_deprecated(arg, "int")) {
 			return 0;
 		}
 		*dest = 0;
 	} else if (EXPECTED(Z_TYPE_P(arg) == IS_TRUE)) {
+		if (arg_num != (uint32_t)-1 && !zend_lossy_from_bool_coercion_deprecated(arg, "int")) {
+			return 0;
+		}
 		*dest = 1;
 	} else {
 		return 0;
@@ -718,11 +772,18 @@ ZEND_API double ZEND_FASTCALL zend_parse_arg_double_weak(const zval *arg, uint32
 			return dval;
 		}
 	} else if (EXPECTED(Z_TYPE_P(arg) < IS_TRUE)) {
-		if (UNEXPECTED(Z_TYPE_P(arg) == IS_NULL) && !zend_null_arg_deprecated("float", arg_num)) {
+		if (UNEXPECTED(Z_TYPE_P(arg) == IS_NULL)) {
+			if (!zend_null_arg_deprecated("float", arg_num)) {
+				return NAN;
+			}
+		} else if (arg_num != (uint32_t)-1 && !zend_lossy_from_bool_coercion_deprecated(arg, "float")) {
 			return NAN;
 		}
 		return 0.0;
 	} else if (EXPECTED(Z_TYPE_P(arg) == IS_TRUE)) {
+		if (arg_num != (uint32_t)-1 && !zend_lossy_from_bool_coercion_deprecated(arg, "float")) {
+			return NAN;
+		}
 		return 1.0;
 	} else {
 		return NAN;
@@ -761,11 +822,18 @@ ZEND_API bool ZEND_FASTCALL zend_parse_arg_number_slow(zval *arg, zval **dest, u
 		}
 		zend_string_release(str);
 	} else if (Z_TYPE_P(arg) < IS_TRUE) {
-		if (UNEXPECTED(Z_TYPE_P(arg) == IS_NULL) && !zend_null_arg_deprecated("int|float", arg_num)) {
+		if (UNEXPECTED(Z_TYPE_P(arg) == IS_NULL)) {
+			if (!zend_null_arg_deprecated("int|float", arg_num)) {
+				return 0;
+			}
+		} else if (!zend_lossy_from_bool_coercion_deprecated(arg, "int")) {
 			return 0;
 		}
 		ZVAL_LONG(arg, 0);
 	} else if (Z_TYPE_P(arg) == IS_TRUE) {
+		if (!zend_lossy_from_bool_coercion_deprecated(arg, "int")) {
+			return 0;
+		}
 		ZVAL_LONG(arg, 1);
 	} else {
 		return 0;
@@ -782,11 +850,18 @@ ZEND_API bool ZEND_FASTCALL zend_parse_arg_number_or_str_slow(zval *arg, zval **
 		return false;
 	}
 	if (Z_TYPE_P(arg) < IS_TRUE) {
-		if (UNEXPECTED(Z_TYPE_P(arg) == IS_NULL) && !zend_null_arg_deprecated("string|int|float", arg_num)) {
+		if (UNEXPECTED(Z_TYPE_P(arg) == IS_NULL)) {
+			if (!zend_null_arg_deprecated("string|int|float", arg_num)) {
+				return false;
+			}
+		} else if (!zend_lossy_from_bool_coercion_deprecated(arg, "int")) {
 			return false;
 		}
 		ZVAL_LONG(arg, 0);
 	} else if (Z_TYPE_P(arg) == IS_TRUE) {
+		if (!zend_lossy_from_bool_coercion_deprecated(arg, "int")) {
+			return false;
+		}
 		ZVAL_LONG(arg, 1);
 	} else if (UNEXPECTED(Z_TYPE_P(arg) == IS_OBJECT)) {
 		zend_object *zobj = Z_OBJ_P(arg);
@@ -808,7 +883,12 @@ ZEND_API bool ZEND_FASTCALL zend_parse_arg_number_or_str_slow(zval *arg, zval **
 ZEND_API zend_string* ZEND_FASTCALL zend_parse_arg_str_weak(zval *arg, uint32_t arg_num) /* {{{ */
 {
 	if (EXPECTED(Z_TYPE_P(arg) < IS_STRING)) {
-		if (UNEXPECTED(Z_TYPE_P(arg) == IS_NULL) && !zend_null_arg_deprecated("string", arg_num)) {
+		if (UNEXPECTED(Z_TYPE_P(arg) == IS_NULL)) {
+			if (!zend_null_arg_deprecated("string", arg_num)) {
+				return NULL;
+			}
+		} else if (UNEXPECTED(Z_TYPE_P(arg) == IS_FALSE || Z_TYPE_P(arg) == IS_TRUE)
+				&& !zend_lossy_from_bool_coercion_deprecated(arg, "string")) {
 			return NULL;
 		}
 		convert_to_string(arg);
@@ -857,6 +937,9 @@ ZEND_API bool ZEND_FASTCALL zend_parse_arg_str_or_long_slow(zval *arg, zend_stri
 	if (zend_parse_arg_long_weak(arg, dest_long, arg_num)) {
 		*dest_str = NULL;
 		return 1;
+	} else if (UNEXPECTED(EG(exception))) {
+		/* A deprecation for the int conversion was promoted to an exception */
+		return 0;
 	} else if ((str = zend_parse_arg_str_weak(arg, arg_num)) != NULL) {
 		*dest_long = 0;
 		*dest_str = str;

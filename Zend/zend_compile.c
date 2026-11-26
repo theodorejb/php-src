@@ -4770,8 +4770,14 @@ static zend_result zend_compile_func_in_array(znode *result, zend_ast_list *args
 	zend_op *opline;
 
 	if (args->children == 3) {
+		/* Only bool constants can be evaluated here. Other values are left to the
+		 * runtime call, which reports lossy coercions and strict_types errors. */
 		if (args->child[2]->kind == ZEND_AST_ZVAL) {
-			strict = zend_is_true(zend_ast_get_zval(args->child[2]));
+			const zval *value = zend_ast_get_zval(args->child[2]);
+			if (Z_TYPE_P(value) != IS_TRUE && Z_TYPE_P(value) != IS_FALSE) {
+				return FAILURE;
+			}
+			strict = Z_TYPE_P(value) == IS_TRUE;
 		} else if (args->child[2]->kind == ZEND_AST_CONST) {
 			zval value;
 			zend_ast *name_ast = args->child[2]->child[0];
@@ -4785,8 +4791,11 @@ static zend_result zend_compile_func_in_array(znode *result, zend_ast_list *args
 			}
 
 			zend_string_release_ex(resolved_name, 0);
-			strict = zend_is_true(&value);
-			zval_ptr_dtor(&value);
+			if (Z_TYPE(value) != IS_TRUE && Z_TYPE(value) != IS_FALSE) {
+				zval_ptr_dtor(&value);
+				return FAILURE;
+			}
+			strict = Z_TYPE(value) == IS_TRUE;
 		} else {
 			return FAILURE;
 		}

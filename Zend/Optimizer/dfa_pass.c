@@ -407,8 +407,12 @@ static uint32_t zend_dfa_optimize_calls(zend_op_array *op_array, zend_ssa *ssa)
 		do {
 			zend_op *op = call_info->caller_init_opline;
 
+			/* Only a bool $strict can be evaluated here. Other values are left to the
+			 * runtime call, which reports lossy coercions and strict_types errors. */
 			if ((op->opcode == ZEND_FRAMELESS_ICALL_2
-			  || (op->opcode == ZEND_FRAMELESS_ICALL_3 && (op + 1)->op1_type == IS_CONST))
+			  || (op->opcode == ZEND_FRAMELESS_ICALL_3 && (op + 1)->op1_type == IS_CONST
+			   && (Z_TYPE_P(CT_CONSTANT_EX(op_array, (op + 1)->op1.constant)) == IS_TRUE
+			    || Z_TYPE_P(CT_CONSTANT_EX(op_array, (op + 1)->op1.constant)) == IS_FALSE)))
 			 && call_info->callee_func
 			 && zend_string_equals_literal_ci(call_info->callee_func->common.function_name, "in_array")) {
 				bool strict = false;
@@ -416,9 +420,7 @@ static uint32_t zend_dfa_optimize_calls(zend_op_array *op_array, zend_ssa *ssa)
 				ZEND_ASSERT(!call_info->is_prototype);
 
 				if (has_opdata) {
-					if (zend_is_true(CT_CONSTANT_EX(op_array, (op + 1)->op1.constant))) {
-						strict = true;
-					}
+					strict = Z_TYPE_P(CT_CONSTANT_EX(op_array, (op + 1)->op1.constant)) == IS_TRUE;
 				}
 
 				if (op->op2_type == IS_CONST
