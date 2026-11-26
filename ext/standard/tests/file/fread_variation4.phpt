@@ -22,11 +22,12 @@ function check_read($file_handle, $read_size, $expect_size) {
   echo "Reading $read_size bytes from file, expecting $expect_size bytes ... ";
   $data_from_file = fread($file_handle, $read_size);
 
-  // check if data read is of expected size
-  if ( strlen($data_from_file) == $expect_size)
+  // check if data read is of expected size (fread() returns false on failure)
+  $bytes_read = $data_from_file === false ? 0 : strlen($data_from_file);
+  if ( $bytes_read == $expect_size)
     echo "OK\n";
   else
-    echo "Error reading file, total number of bytes read = ".strlen($data_from_file)."\n";
+    echo "Error reading file, total number of bytes read = ".$bytes_read."\n";
 
   // file pointer position after read
   var_dump( ftell($file_handle) );

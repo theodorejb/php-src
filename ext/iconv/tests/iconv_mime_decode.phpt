@@ -17,6 +17,10 @@ function do_single_test($header)
     global $mode;
 
     $result = iconv_mime_decode($header, $mode, "UTF-8");
+    if ($result === false) {
+        echo "false\n";
+        return;
+    }
     printf("(%d) \"%s\"\n", iconv_strlen($result, "UTF-8"), $result);
 }
 
@@ -70,13 +74,13 @@ do_regression_test();
 (32) "Subject: Prüfung PrüfungkůÔńÓlet"
 (31) "Subject: PrüfungPrüfungkůÔńÓlet"
 2: iconv_mime_decode(): Malformed string
-(0) ""
+false
 (27) "From: サンプル文字列サンプル文字列日本語テキスト"
 (31) "Subject: PrüfungPrüfungkůÔńÓlet"
 (32) "Subject: Prüfung PrüfungkůÔńÓlet"
 (100) "Subject: =?ISO-8859-1?Q?Pr=FCfung?==?ISO-8859-1*de_DE?Q?Pr=FCfung?==?ISO-8859-2?Q?k=F9=D4=F1=D3let?="
 2: iconv_mime_decode(): Malformed string
-(0) ""
+false
 (27) "From: サンプル文字列サンプル文字列日本語テキスト"
 (31) "Subject: PrüfungPrüfungkůÔńÓlet"
 (32) "Subject: Prüfung PrüfungkůÔńÓlet"

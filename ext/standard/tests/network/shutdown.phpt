@@ -43,8 +43,12 @@ if (!$server) {
     if (!$socket) {
         die('Unable to accept connection');
     }
-    @fwrite($socket, fgets($socket));
-    @fwrite($socket, fgets($socket));
+    if (($line = fgets($socket)) !== false) {
+        @fwrite($socket, $line);
+    }
+    if (($line = fgets($socket)) !== false) {
+        @fwrite($socket, $line);
+    }
     fclose($socket);
 
     /* Read Response 1 */
@@ -56,8 +60,12 @@ if (!$server) {
     if (!$socket) {
         die('Unable to accept connection');
     }
-    @fwrite($socket, fgets($socket));
-    @fwrite($socket, fgets($socket));
+    if (($line = fgets($socket)) !== false) {
+        @fwrite($socket, $line);
+    }
+    if (($line = fgets($socket)) !== false) {
+        @fwrite($socket, $line);
+    }
     fclose($socket);
 
     /* Read Response 2 */

@@ -20,7 +20,7 @@ try {
 } catch (Throwable $e) {
     echo $e::class, ': ', $e->getMessage(), "\n";
 }
-var_dump(substr_compare("abcde", "abc", -1, NULL, -5) > 0);
+var_dump(substr_compare("abcde", "abc", -1, NULL, true) > 0);
 ?>
 --EXPECT--
 bool(true)

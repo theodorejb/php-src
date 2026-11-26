@@ -16,7 +16,9 @@ $in = fopen("php://stdin", "rb", false, stream_context_create(array("pipe" => ar
 
 while(!feof($in)){
 $s = fgets($in);
-    fwrite(STDOUT, $s);
+    if ($s !== false) {
+        fwrite(STDOUT, $s);
+    }
 }
 
 ?>';

@@ -2,7 +2,7 @@
 stream_select() base64-decode filter buffered data usage
 --FILE--
 <?php
-$domain = (strtoupper(substr(PHP_OS, 0, 3) == 'WIN') ? STREAM_PF_INET : STREAM_PF_UNIX);
+$domain = (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN' ? STREAM_PF_INET : STREAM_PF_UNIX);
 $pipes = stream_socket_pair($domain, STREAM_SOCK_STREAM, 0);
 if ($pipes === false) {
     die("Failed to create socket pair");

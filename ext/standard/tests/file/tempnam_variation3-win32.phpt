@@ -61,6 +61,10 @@ for( $i=0; $i<count($names_arr); $i++ ) {
         echo $e->getMessage(), "\n";
         continue;
     }
+    if ($file_name === false) {
+        echo "tempnam() returned false\n";
+        continue;
+    }
 
     /* creating the files in existing dir */
     if (file_exists($file_name) && !$res_arr[$i]) {
@@ -99,8 +103,7 @@ OK
 -- Iteration 4 --
 
 Notice: tempnam(): file created in the system's temporary directory in %stempnam_variation3-win32.php on line %d
-Failed, not created in the correct directory %s vs %s
-0
+tempnam() returned false
 -- Iteration 5 --
 tempnam(): Argument #2 ($prefix) must not contain any null bytes
 -- Iteration 6 --

@@ -34,7 +34,7 @@ function pt_skip_for_backend($backend, $msg): void {
 }
 
 function pt_new_socket_pair(): array {
-    $domain = (strtoupper(substr(PHP_OS, 0, 3) == 'WIN') ? STREAM_PF_INET : STREAM_PF_UNIX);
+    $domain = (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN' ? STREAM_PF_INET : STREAM_PF_UNIX);
     $sockets = stream_socket_pair($domain, STREAM_SOCK_STREAM, 0);
     if ($sockets === false) {
         die("Cannot create socket pair\n");

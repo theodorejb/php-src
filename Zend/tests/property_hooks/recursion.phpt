@@ -10,7 +10,7 @@ class Test {
     }
 
     // Edge-case where recursion happens via isset().
-    public int $prop2 {
+    public bool $prop2 {
         get { return isset($this->prop2); }
         set { }
     }
@@ -32,5 +32,5 @@ object(Test)#1 (1) {
   ["prop"]=>
   int(20)
   ["prop2"]=>
-  uninitialized(int)
+  uninitialized(bool)
 }

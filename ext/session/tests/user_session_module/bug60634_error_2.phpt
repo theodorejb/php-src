@@ -35,7 +35,7 @@ class MySessionHandler implements SessionHandlerInterface {
     }
 
     function gc($maxlifetime): int {
-        return true;
+        return 0;
     }
 
     private int $id = 0;

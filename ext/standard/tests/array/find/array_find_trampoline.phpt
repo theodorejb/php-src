@@ -11,7 +11,7 @@ $array = [
 ];
 
 class TrampolineTest {
-    public function __call(string $name, array $arguments): string {
+    public function __call(string $name, array $arguments): bool {
         echo 'Trampoline for ', $name, PHP_EOL;
   		return $arguments[0] % 2 === 0;
     }

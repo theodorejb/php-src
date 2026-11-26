@@ -12,7 +12,7 @@ try {
 }
 
 try {
-    assert((fn&(int... $args): ?bool => $args[0])(false));
+    assert((fn&(int... $args): ?bool => $args[0])(0));
 } catch (Throwable $e) {
     echo $e::class, ': ', $e->getMessage(), "\n";
 }
@@ -20,4 +20,4 @@ try {
 ?>
 --EXPECT--
 AssertionError: assert((fn() => false)())
-AssertionError: assert((fn&(int ...$args): ?bool => $args[0])(false))
+AssertionError: assert((fn&(int ...$args): ?bool => $args[0])(0))

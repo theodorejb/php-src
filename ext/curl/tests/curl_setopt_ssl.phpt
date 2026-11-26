@@ -29,7 +29,7 @@ function check_error(CurlHandle $ch, $expected = null) {
 }
 
 function check_response($response, $clientCertSubject) {
-    if (strpos($response, $clientCertSubject) === false) {
+    if ($response === false || strpos($response, $clientCertSubject) === false) {
         echo "client cert subject not in response\n";
     } else {
         echo "client cert subject in response\n";

@@ -28,17 +28,17 @@ $db->sqliteCreateFunction('fail_execute', function (bool $fail): string {
     return 'first';
 });
 $stmt = $db->prepare('SELECT fail_execute(?) AS value UNION ALL SELECT 2');
-$stmt->execute([false]);
+$stmt->execute([0]);
 var_dump($stmt->fetchColumn());
 
 try {
-    $stmt->execute([true]);
+    $stmt->execute([1]);
 } catch (RuntimeException $e) {
     echo $e::class, ': ', $e->getMessage(), PHP_EOL;
 }
 var_dump($stmt->fetchColumn());
 
-$stmt->execute([false]);
+$stmt->execute([0]);
 var_dump($stmt->fetchAll(PDO::FETCH_COLUMN));
 
 $db->exec('CREATE TABLE failed_execute (value INTEGER UNIQUE)');

@@ -26,6 +26,10 @@ $a = array(
 
 foreach ($a as $address) {
     $packed = inet_pton($address);
+    if ($packed === false) {
+        var_dump($packed);
+        continue;
+    }
     var_dump(inet_ntop($packed));
 }
 

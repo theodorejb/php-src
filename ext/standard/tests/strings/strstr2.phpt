@@ -21,7 +21,7 @@ var_dump(strstr($email, 'e', 1));
 var_dump(strstr($email, 'E'));
 var_dump(strstr($email, 'E', 1));
 
-var_dump(strstr('', ' ', ''));
+var_dump(strstr('', ' ', false));
 
 ?>
 --EXPECT--
